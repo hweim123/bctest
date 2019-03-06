@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>打印机查询</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="//v3.bootcss.com/examples/theme/theme.css" rel="stylesheet">
+
+</head>
+<body row="document">
+<div class="container theme-showcase" role="main">
+    <!--打印机查询-->
+    <div id="navbar" class="navbar-collapse">
+          <form class="navbar-form" method="get" action="/search_printer">
+              <div class="form-group">
+                  <input name="printer" type="text" placeholder="打印机编号" class="form-control">
+              </div>
+              <button type="submit" class="btn btn-success">搜索</button>
+          </form>
+      </div>
+</div>
+
+<!--列表显示-->
+<div class="row">
+    <div class="col-md-12">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>equipment_id</th>
+            <th>设备类型</th>
+            <th>设备编号</th>
+            <th>校验码</th>
+            <th>var_version</th>
+            <th>firmware_version</th>
+            <th>modified_on</th>
+            <th>是否升级</th>
+            <th>是否磐石</th>
+            <th>softtype</th>
+            <th>ver2</th>
+            <th>ver3</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for print in mcp_equipment %}
+        <tr>
+            <td>{{ print.equipment_id }}</td>
+            <td>{{ print.equipment_type }}</td>
+            <td>{{ print.equipment_code }}</td>
+            <td>{{ print.check_code }}</td>
+            <td>{{ print.var_version }}</td>
+            <td>{{ print.firmware_version }}</td>
+            <td>{{ print.modified_on }}</td>
+            <td>{{ print.is_upgrade }}</td>
+            <td>{{ print.is_sendps }}</td>
+            <td>{{ print.softtype }}</td>
+            <td>{{ print.ver2 }}</td>
+            <td>{{ print.ver3 }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+</div>
+
+</body>
+</html>

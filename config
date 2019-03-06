@@ -1,0 +1,17 @@
+[DATABASE]
+host = 127.0.0.1
+username = admin
+password = 123456
+port = 8000
+database = test
+
+[HTTP]
+# 接口的url
+baseurl = http://xx.xxxx.xx
+port = 8080
+timeout = 1.0
+
+[EMAIL]
+mail_host = 731397356@qq.com
+
+
